@@ -134,6 +134,7 @@ class Controller_Coach extends Controller_Frame {
 				'level' => Model_Coach_Category::LEVEL_PARENT,
 			));
 			if ($parent->loaded()) {
+				View::set_global('type_parent', $parent); // 用于导航
 				$breadcrumb_uri .= $parent->label.'/'; //面包屑地址
 				$type_name = $parent->name.$parent->suffix;
 				$this->breadcrumb->append($breadcrumb_uri.'in/', $type_name);

@@ -68,71 +68,47 @@
     <div class="nav-bar" id="nav">
         <div class="inner clearfix">
             <ul>
-                <li><a href="<?php echo URL::site('/')?>" class="active">首页</a></li>
+                <li><a href="<?php echo URL::site('/')?>" class="<?php echo Request::$current->controller() == 'home' ? 'active':'';?>">首页</a></li>
+				<?php
+					$nav_arr = array(
+						'tiyu' => '体育教练',
+						'wenyi' => '文艺老师',
+						'jiajiao' => '家教老师',
+						'shenghuo' => '生活老师',
+					);
+				?>
+				<?php $num = 1;foreach($nav_arr as $label=>$name):?>
                 <li>
-                    <a href="<?php echo URL::site('/coach/list/tiyu')?>">体育教练</a>
-                    <div class="nav-content hide left-1">
+					<?php
+						$active_class = '';
+						if(isset($type_parent) AND $type_parent->label == $label){
+							$active_class = 'class="active"';
+						}
+					?>
+                    <a href="<?php echo Route::url('list', array(
+						'controller' => 'coach',
+						'type' => $label,
+					));?>" <?php echo $active_class;?>><?php echo $name;?></a>
+                    <div class="nav-content hide left-<?php echo $num;?>">
 						<?php
-							$label = 'tiyu';
 							$item_list = ORM::factory('coach_category')->get_item_byparent($label);
 							if($item_list){
 								foreach($item_list as $item){
-									echo '<a href="'.URL::site('/coach/list/'.$label.'/'.$item->label).'">'.$item->name.'</a>';
+									echo '<a href="'.Route::url('list', array(
+										'controller' => 'coach',
+										'type' => $label.'/'.$item->label,
+									)).'">'.$item->name.'</a>';
 								}
-
-								echo '<span class="more"><a href="'.URL::site('/coach/list/'.$label).'">MORE>></a></span>';
+								echo '<span class="more"><a href="'.Route::url('list', array(
+									'controller' => 'coach',
+									'type' => $label,
+								)).'">MORE>></a></span>';
 							}
 						?>
                     </div>
                 </li>
-                <li>
-                    <a href="<?php echo URL::site('/coach/list/wenyi')?>">文艺老师</a>
-                    <div class="nav-content hide left-2">
-						<?php
-						$label = 'wenyi';
-						$item_list = ORM::factory('coach_category')->get_item_byparent($label);
-						if($item_list){
-							foreach($item_list as $item){
-								echo '<a href="'.URL::site('/coach/list/'.$label.'/'.$item->label).'">'.$item->name.'</a>';
-							}
+				<?php $num++; endforeach;?>
 
-							echo '<span class="more"><a href="'.URL::site('/coach/list/'.$label).'">MORE>></a></span>';
-						}
-						?>
-                    </div>
-                </li>
-                <li>
-                    <a href="<?php echo URL::site('/coach/list/jiajiao')?>">家教老师</a>
-                    <div class="nav-content hide left-3">
-						<?php
-						$label = 'jiajiao';
-						$item_list = ORM::factory('coach_category')->get_item_byparent($label);
-						if($item_list){
-							foreach($item_list as $item){
-								echo '<a href="'.URL::site('/coach/list/'.$label.'/'.$item->label).'">'.$item->name.'</a>';
-							}
-
-							echo '<span class="more"><a href="'.URL::site('/coach/list/'.$label).'">MORE>></a></span>';
-						}
-						?>
-                    </div>
-                </li>
-                <li>
-                    <a href="<?php echo URL::site('/coach/list/shenghuo')?>">生活教练</a>
-                    <div class="nav-content hide left-4">
-						<?php
-						$label = 'jiajiao';
-						$item_list = ORM::factory('coach_category')->get_item_byparent($label);
-						if($item_list){
-							foreach($item_list as $item){
-								echo '<a href="'.URL::site('/coach/list/'.$label.'/'.$item->label).'">'.$item->name.'</a>';
-							}
-
-							echo '<span class="more"><a href="'.URL::site('/coach/list/'.$label).'">MORE>></a></span>';
-						}
-						?>
-                    </div>
-                </li>
                 <li>
                     <a href="<?php echo URL::site('/article')?>" id="article">教学文章</a>
                     <div class="nav-content hide left-5">

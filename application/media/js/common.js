@@ -49,6 +49,7 @@ jQuery.fn.extend({
     initNav: function(){
         var main = this.extend({
             items: this.find("li"),
+            active: this.find("li a.active"),
             contents: this.find("li div.nav-content"),
             run: function(){
                 main.items.hover(function(e){
@@ -56,6 +57,7 @@ jQuery.fn.extend({
                     $(this).find('div.nav-content').removeClass('hide');
                 }, function(e){
                     $(this).find('a:first-child').removeClass('active');
+                    main.active.addClass('active');
                     main.contents.addClass('hide');
                 })
             }
