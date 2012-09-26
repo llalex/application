@@ -1,4 +1,4 @@
 application
 ===========
 
-an kohana application
+a kohana application
