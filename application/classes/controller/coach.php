@@ -121,7 +121,10 @@ class Controller_Coach extends Controller_Frame {
 
 		$breadcrumb_uri = '/coach/list/'; // 面包屑地址
 		$breadcrumb_name = ''; // 面包屑名称
+
 		$type_name = ''; // 教练信息筛选条件名称
+		$current_location = NULL; //当前的地区信息
+		$location_name = ''; //地区筛选条件名称
 
 		// 处理类型信息
 		$type = $this->request->param('type');
@@ -159,17 +162,18 @@ class Controller_Coach extends Controller_Frame {
 
 		// 处理地区信息
 		$location = $this->request->param('location');
-		if ($location) {
-			$district = new Model_District();
-			$location_arr = explode('/', $location);
-			$province = $location_arr[0];
-			$city = Arr::get($location_arr, 1);
-			$county = Arr::get($location_arr, 2);
-			$towns = Arr::get($location_arr, 3);
+		$location_arr = explode('/', $location);
+		$province = Arr::get($location_arr, 0);
+		$city = Arr::get($location_arr, 1);
+		$county = Arr::get($location_arr, 2);
+		$towns = Arr::get($location_arr, 3);
+		$district = new Model_District();
+		if ($province) {
 			$province = $district->get_by_label($province, Model_District::LEVEL_PROVINCE, 0);
 			if($province->loaded()){
 				$breadcrumb_uri .= 'in/'.$province->label.'/'; //面包屑地址
 				$location_name = $province->name; //地区名称
+				$current_location = $province;
 				$type_name = $location_name.$breadcrumb_name;
 				$this->breadcrumb->append($breadcrumb_uri, $type_name);
 				$this->appendTitle($type_name);
@@ -179,6 +183,7 @@ class Controller_Coach extends Controller_Frame {
 					if($city->loaded()){
 						$breadcrumb_uri .= $city->label.'/';
 						$location_name .= $city->name;
+						$current_location = $city;
 						$type_name = $location_name.$breadcrumb_name;
 						$this->breadcrumb->append($breadcrumb_uri, $type_name);
 						$this->appendTitle($type_name);
@@ -188,6 +193,7 @@ class Controller_Coach extends Controller_Frame {
 							if($county->loaded()){
 								$breadcrumb_uri .= $county->label.'/';
 								$location_name .= $county->name;
+								$current_location = $county;
 								$$type_name = $location_name.$breadcrumb_name;
 								$this->breadcrumb->append($breadcrumb_uri, $type_name);
 								$this->appendTitle($type_name);
@@ -197,6 +203,7 @@ class Controller_Coach extends Controller_Frame {
 									if($towns->loaded()){
 										$breadcrumb_uri .= $towns->label.'/';
 										$location_name .= $towns->name;
+										$current_location = $towns;
 										$type_name = $location_name.$breadcrumb_name;
 										$this->breadcrumb->append($breadcrumb_uri, $type_name);
 										$this->appendTitle($type_name);
@@ -210,11 +217,23 @@ class Controller_Coach extends Controller_Frame {
 			}
 		}
 
+		if($current_location instanceof Model_District){
+			$child_locations = $district->get_child($current_location);
+		} else {
+			$child_locations = $district->get_province_list();
+		}
+
 		$pagination = new Pagination(array(
             'total_items' => $coach_model->reset(FALSE)->count_all(),
         ));
 		$this->content =View::factory('coach/list')->set(array(
 			'type_name' => $type_name,
+			'current_location' => $current_location,
+			'child_locations' => $child_locations,
+			'province' => $province,
+			'city' => $city,
+			'county' => $county,
+			'towns' => $towns,
 			'pagination' => $pagination,
 			'recommend' => $coach_model->reset(FALSE)->order_by('view_num', 'DESC')->limit(12)->find_all(),
 			'new_coaches' => $coach_model->reset(FALSE)->order_by('dateline', 'DESC')->limit(6)->find_all(),

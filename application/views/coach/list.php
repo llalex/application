@@ -5,15 +5,27 @@
         <div class="child">
             <form class="form-inline">
                 <h4 class="pull-left">选择地区:</h4>
-                <span><a href="#">不限</a></span>
-                <span class="active"><a href="#">北京</a></span>
-                <select name="city" class="input-small">
-                    <option>--请选择--</option>
-                    <option>东城区</option>
-                    <option>西城区</option>
-                    <option>崇文区</option>
-                    <option>宣武区</option>
-                </select>
+                <span <?php echo $current_location === NULL ? 'class="active"':'';?>><a href="<?php echo Route::url('list', array(
+					'controller' => 'coach',
+					'type' => Request::$current->param('type'),
+				))?>">不限</a></span>
+				<?php
+				$location_arr = array($province, $city, $county, $towns);
+				$location_uri = '';
+				foreach($location_arr as $item):
+				if($item instanceof Model_District):
+					$location_uri = $location_uri.'/'.$item->label;
+				?>
+                <span <?php echo $current_location === $item ? 'class="active"':'';?>><a href="<?php echo Route::url('list', array(
+					'controller' => 'coach',
+					'type' => Request::$current->param('type'),
+					'location' => $location_uri,
+				));?>"><?php echo $item->name;?></a></span>
+				<?php
+                endif;
+                endforeach;
+                ?>
+				<?php echo Form::select('child_location', array('' => '--请选择--') + $child_locations->as_array('label', 'name'), NULL, array('class'=>'input-small'));?>
             </form>
         </div>
 
@@ -28,7 +40,7 @@
 
     <div class="plate">
         <div class="plate-header">
-            <h4>北京网球培训教练</h4>
+            <h4><?php echo $type_name.'教练';?></h4>
         </div>
         <div class="plate-content item-list">
             <?php foreach ($coach_list as $item):?>
@@ -55,7 +67,7 @@
 
     <div class="plate">
         <div class="plate-header">
-            <h4>北京网球培训推荐教练</h4>
+            <h4><?php echo $type_name;?>推荐教练</h4>
         </div>
         <div class="plate-content clearfix">
             <ul class="image-list">
@@ -78,7 +90,7 @@
 
     <div class="plate">
         <div class="plate-header">
-            <h4>北京网球培训教练区域导航</h4>
+            <h4><?php echo $type_name;?>教练区域导航</h4>
         </div>
         <div class="plate-content district">
             <div>
@@ -103,7 +115,7 @@
 <div class="sider-bar pull-right">
     <div class="plate">
         <div class="plate-header">
-            <h4>北京网球培训推荐教练</h4>
+            <h4><?php echo $type_name;?>推荐教练</h4>
         </div>
         <div class="plate-content item-list">
             <?php $i = 0; foreach($recommend as $item): $i++;?>
@@ -127,7 +139,7 @@
     </div>
     <div class="plate">
         <div class="plate-header">
-            <h4>北京网球培训人气教练</h4>
+            <h4><?php echo $type_name;?>人气教练</h4>
         </div>
         <div class="plate-content item-list">
             <?php foreach($new_coaches as $item):?>

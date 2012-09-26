@@ -86,4 +86,14 @@ class Model_District extends ORM {
 		));
 	}
 
+	/**
+	 * 获取子分类地区
+	 * @param Model_District $district
+	 */
+	public function get_child(Model_District $district){
+		return ORM::factory('district')->where('upid', '=', $district->pk())
+									   ->where('level', '=', $district->level+1)
+									   ->find_all();
+	}
+
 }
