@@ -1,0 +1,618 @@
+body{
+    background-color: #D5D8D7;
+    font-family: Arial,Verdana,Helvetica,sans-serif;
+    padding-top: 50px;
+    color: #7E7E7E;
+}
+h4 {
+    color: #314140;
+}
+form h4 {
+    height: 28px;
+    line-height: 28px;
+}
+a {
+    color: #243534;
+}
+a:hover {
+    color: #AC0403;
+}
+
+.top-bar{
+    background-color: #FFF;
+    line-height: 24px;
+}
+.top-bar > ul {
+    list-style: none;
+    margin: 0;
+}
+.top-bar > ul > li {
+    float: left;
+    line-height: 24px;
+    margin: 0 5px 0 5px;
+}
+.top-bar > ul.menu > li {
+    float: right;
+    color: #CCCCCC;
+}
+.top-bar > ul > li > a{
+    margin-right: 8px;
+}
+.top-bar > ul > li.brand {
+    background: url("../ico/favicon.ico") no-repeat scroll 5px 50% transparent;
+    border-right: 1px solid #FFFFFF;
+}
+.top-bar > ul > li.brand > a{
+    border-right: 1px solid #D5D5D5;
+    padding:0 12px 0 25px;
+}
+
+.container {
+    width: 980px;
+}
+
+h4.site-dec {
+    margin-top: 20px;
+}
+
+.nav-bar {
+    background:url("../ico/nav-bar.jpg") repeat-x scroll 0 0 transparent;
+    height: 39px;
+    margin-top: 12px;
+    width: 100%;
+}
+.nav-bar > .inner {
+    background:url("../ico/nav-bar.jpg") repeat-x scroll 0 0 transparent;
+    margin: 0 auto;
+    width: 980px;
+}
+.nav-bar > .inner > ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+.nav-bar > .inner > ul > li {
+    float: left;
+    height: 39px;
+    text-align: center;
+    width: 100px;
+}
+.nav-bar > .inner > ul > li > a {
+    background: url("../ico/nav-item.jpg") no-repeat scroll right center transparent;
+    color: #FFFFFF;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    height: 35px;
+    line-height: 35px;
+    margin-top: 2px;
+}
+.nav-bar > .inner > ul > li > a:hover, .nav-bar > .inner > ul > li > a.active {
+    background: url("../ico/nav-item-active.jpg") no-repeat scroll center transparent;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+.nav-content {
+    background-color: #F88206; /*#243534*/
+    width: 910px;
+    padding: 10px 15px;
+    text-align: left;
+    position: relative;
+    z-index: 100;
+}
+.left-1 {
+    left: -80px;
+}
+.left-2 {
+    left: -180px;
+}
+.left-3 {
+    left: -280px;
+}
+.left-4 {
+    left: -380px;
+}
+.left-5 {
+    left: -480px;
+}
+.nav-content a {
+    color: #FFFFFF; /*#F88206*/
+    font-weight: bolder;
+    line-height: 25px;
+    margin: 0 2px;
+}
+.nav-content a:hover {
+    color: #000000; /*#FFFFFF*/
+}
+.nav-content .more {
+    right: 15px;
+    position: absolute;
+}
+.nav-content .more a{
+    color: #FEFEFE;
+}
+.nav-content .more a:hover {
+    color: #AC0403;
+}
+
+.content {
+    background-color: #FFFFFF;
+    margin: 0 auto;
+    padding-top: 10px;
+    width: 940px;
+}
+.breadcrumb {
+    color: #243534;
+    border: none;
+    border-radius: 0;
+    margin: 0 0;
+    padding: 7px 20px;
+}
+
+.main {
+    width: 71.35%;
+}
+
+.type-panel-bg{
+    background: none repeat scroll 0 0 #A7A7A7;
+    top: 5px;
+    height: 194px;
+    position: relative;
+    margin:0 0 10px 6px;
+}
+.type-panel{
+    background: none repeat scroll 0 0 #D5D8D7;
+    left: -6px;
+    top: -5px;
+    height: 174px;
+    width: 644px;
+    position: absolute;
+    padding: 10px;
+}
+.type-panel .type-title {
+    padding: 10px 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.type-panel .type-title span {
+    background: none repeat scroll 0 0 #BFBFBF;
+    padding: 3px 5px;
+}
+.type-panel .type-content a {
+    line-height: 25px;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.panel{
+    margin-bottom: 5px;
+    border-radius: 7px;
+}
+.panel-header {
+    height: 35px;
+    padding-left: 20px;
+    line-height: 35px;
+    border-color: #D5D8D7;
+    border-style: solid;
+    border-width: 0 1px 0 0;
+}
+.panel-header h4 {
+    line-height: 35px;
+}
+.panel-header span {
+    margin-right: 8px;
+}
+.panel-header span a{
+    color: #A2A2A2;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 10px;
+}
+.panel-content{
+    padding: 10px 10px;
+    border-color: #D5D8D7;
+    border-style: solid;
+    border-width: 0 1px 1px 1px;
+}
+.panel .black-white {
+    background: url("../ico/panel-header-black-white.jpg");
+    width: 649px;
+}
+.panel .black-white h4, .panel .black h4 {
+    color: #F88206;
+}
+.panel .orange-white {
+    background: url("../ico/panel-header-orange-white.jpg");
+    width: 649px;
+}
+.panel .black {
+    background: url("../ico/panel-header-black.jpg");
+    width: 228px;
+}
+.sider-bar .panel .panel-content {
+    background: none repeat scroll 0 0 #EFEFEF;
+}
+.sider-bar .panel .panel-content li {
+    height: 20px;
+    line-height: 20px;
+}
+.sider-bar .panel .panel-content li span{
+    height: 20px;
+    overflow: hidden;
+}
+.sider-bar .panel .panel-content li span.date{
+    margin-left: 10px;
+}
+
+ul.image-list {
+    list-style: none outside none;
+    margin: 0 0;
+}
+ul.image-list li {
+    float: left;
+    width: 106px;
+    margin: 5px 1px;
+    text-align: center;
+}
+ul.image-list li span {
+    display: block;
+    height: 20px;
+    line-height: 20px;
+    margin: 0 5px;
+    overflow: hidden;
+}
+.hr {
+    background: url("../ico/hr.jpg") repeat-x scroll center bottom transparent;
+    width: 647px;
+    margin: 5px 0;
+    padding-bottom: 5px;
+}
+
+.table th, .table td {
+    border-top: 0px;
+}
+.table tr td.item {
+    background: url("../ico/list-item.jpg") no-repeat scroll 19px 50% transparent;
+    width: 10px;
+}
+.coach-category .panel-content div{
+    margin-top:10px;
+}
+.coach-category div span{
+    line-height: 25px;
+    padding-right:5px;
+}
+
+.slider {
+    left: 1px;
+    overflow: hidden;
+    position: relative;
+    height: 195px;
+    margin-bottom: 8px;
+}
+.slider-txt {
+    float: left;
+    height: 26px;
+    line-height: 26px;
+    padding-left: 5px;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    overflow: hidden;
+}
+.slider-ctrl {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+    height: 26px;
+    bottom: 0;
+    position: absolute;
+    width: 247px;
+}
+.slider-ctrl ul {
+    float: right;
+}
+.slider-ctrl ul li{
+    margin: 5px 5px;
+    float: left;
+}
+.slider-ctrl ul li a{
+    display: block;
+    background-color: #FFFFFF;
+    font-weight: bold;
+    height: 16px;
+    line-height: 16px;
+    width: 16px;
+    text-align: center;
+}
+.slider-ctrl ul li a:hover , .slider-ctrl ul li a.active{
+    background-color: #FF7D01;
+    color: white;
+    font-size: 13px;
+}
+
+.footer {
+    background: none repeat scroll 0 0 #243534;
+    width: 980px;
+    line-height: 30px;
+    color: #F2F2F2;
+    text-align: center;
+    padding: 15px 0 15px;
+}
+.footer a {
+    color: #F2F2F2;
+}
+
+.list-category {
+    background: url("../ico/list-category-bg.jpg") repeat-x scroll 0 0 transparent;
+    padding: 10px;
+}
+.list-category h4{
+    color: #FF7D01;
+}
+.list-category .child form {
+    margin: 0 0 10px;
+}
+.list-category .child h4 {
+    margin-right: 10px;
+}
+.list-category .child span{
+    padding-right: 3px;
+}
+.list-category .child span.active a{
+    color: #FF7D01;
+    font-weight: bold;
+}
+.sider-bar .plate {
+    width: 234px;
+}
+.plate{
+    background-color: #fff;
+    background-image: url("../ico/panel-top-center.png");
+    background-position:center top;
+    background-repeat: repeat-x;
+    border: 1px solid #bbb;
+    padding: 10px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-radius: 7px;
+}
+.plate-header{
+    line-height: 28px;
+    height: 28px;
+    margin-bottom: 10px;
+}
+.plate-header h4 {
+    line-height: 28px;
+}
+.item-list {
+    margin-bottom: 20px;
+}
+.item {
+    padding: 10px 0;
+    background: url("../ico/hr.jpg") repeat-x scroll center bottom transparent;
+    line-height: 24px;
+}
+.item-left {
+    text-align: center;
+}
+.item .span7 {
+    width: 61%;
+}
+.item .span3 {
+    width: 19.4043%;
+}
+.item-center .item-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+.item-center .item-title a {
+    color: #FF7D01;
+}
+.item-right {
+    text-align: right;
+}
+.item-right span {
+    color: #FF7D01;
+}
+.pagination {
+    margin: 10px 0;
+}
+.pagination a {
+    line-height: 25px;
+    margin: 0 3px;
+    border-width: 1px;
+}
+.pagination a:hover{
+    border-color: #FD6D01;
+}
+.pagination .active a {
+    background-color: #FFEDE1;
+    border: 1px solid #FD6D01;
+}
+
+.district > div {
+    margin: 5px 0;
+}
+.district > div > span{
+    margin: 0 2px;
+}
+.district > div > span.title {
+    font-weight: bold;
+}
+
+.account {
+    border: 1px solid #D4D4D4;
+    margin: 0 10px 20px;
+    padding-bottom: 30px;
+    border-radius: 7px;
+}
+.account .login-title {
+    background: url("../ico/login_title.jpg") no-repeat scroll 0 0 #F2F2F2;
+    height: 37px;
+    border-bottom: 1px solid #D4D4D4;
+    margin-bottom: 30px;
+}
+.account .register-title {
+    background: url("../ico/register_title.jpg") no-repeat scroll 250px 0 #F2F2F2;
+    height: 37px;
+    border-bottom: 1px solid #D4D4D4;
+    margin-bottom: 30px;
+    font-size: 24px;
+    line-height: 37px;
+    padding-left: 15px;
+}
+.account .register-content {
+    margin-left: 150px;
+}
+.account .login-form {
+    border: 1px solid #D4D4D4;
+    border-radius: 7px;
+    margin: 20px;
+    padding: 20px 20px 20px 40px;
+    float: left;
+}
+.account .login-form .login-form-title {
+    background: url("../ico/login_form.jpg") no-repeat scroll 0 0;
+    width: 236px;
+    height: 42px;
+}
+.account .login-form .login-form-bottom {
+    background: url("../ico/login_bottom.jpg") no-repeat scroll 0 0;
+    width: 406px;
+    height: 25px;
+}
+.account .login-pic {
+    background: url("../ico/login_pic.jpg") no-repeat scroll 0 0 transparent;
+    border: 1px solid #D4D4D4;
+    border-radius: 7px;
+    float: right;
+    margin: 20px 70px 10px 0;
+    padding: 210px 0 24px 10px;
+    width: 326px;
+}
+.login-pic a{
+    color: #F88206;
+    font-size: 20px;
+}
+.account .form-horizontal .control-label {
+    width: 80px;
+}
+.account .form-horizontal .controls {
+    margin-left: 50px;
+}
+.login-btn {
+    background: url("../ico/login_btn.jpg") no-repeat scroll 0 0;
+    width: 78px;
+    height: 38px;
+    border: medium none;
+}
+.register-btn {
+    background: url("../ico/register_btn.jpg") no-repeat scroll 0 0;
+    width: 106px;
+    height: 38px;
+    border: medium none;
+}
+.user {
+    padding-bottom:20px;
+}
+.user .span3 {
+    width: 19.5%;
+}
+.user .span9 {
+    width: 78.3%;
+}
+.user-bar {
+    border: 1px solid #D4D4D4;
+    border-radius: 0 7px 7px;
+    padding-bottom: 10px;
+}
+.user-bar-title {
+    background: url("../ico/user_title.jpg") repeat-x scroll 0 0 transparent;
+    border-bottom: 1px solid #D4D4D4;
+    color: #FFFFFF;
+    font-size: 16px;
+    height: 29px;
+    line-height: 29px;
+    padding-left: 11px;
+    width: 169px;
+}
+.user-bar ul li {
+    line-height: 26px;
+}
+ul.user-bar-group > li > div{
+    background: #E8E8E8;
+    padding-left: 33px;
+    color: #F88206;
+    font-size: 12px;
+    font-weight: bold;
+}
+ul.user-bar-item {
+    list-style-image: url("../ico/user-list-item.jpg");
+    margin-left: 50px;
+}
+ul.user-bar-item li {
+}
+.user-content .plate {
+    margin: 0;
+    padding: 0 10px;
+}
+.user-content {
+    width: 600px;
+}
+.user-content .plate .plate-content span {
+    line-height: 30px;
+    width: 40%;
+}
+
+.coach-property {
+    color: #243534;
+    text-align: center;
+}
+.coach-property table {
+    line-height: 26px;
+}
+.coach-property table th {
+    text-align: right;
+}
+.coach-property table td {
+    text-align: left;
+}
+.detail h3 {
+    background-color: #EBEBEB;
+    padding: 0 5px;
+    margin: 10px 0;
+}
+.detail h3 span {
+    font-size: 14px;
+    font-weight: normal;
+}
+.detail h3 span a {
+    color: #F88206;
+}
+
+.comment dl {
+    border-bottom: 1px dashed #CDCDCD;
+}
+.comment dl dt span {
+    padding: 0 5px;
+}
+.comment dl dd {
+    color: #243534;
+    margin: 5px 5px 5px 10px;
+}
+
+.ie .panel-header{
+    padding-left: 20px;
+}
+.ie7 .panel .orange-white, .ie6 .panel .orange-white, .ie7 .panel .black-white, .ie6 .panel .black-white{
+    width: 650px;
+}
+.ie7 .type-panel .type-content a{
+    margin: 0 0;
+}
+.ie7 .district > div > span {
+    margin: 0 1px;
+}
+.ie7 .hr {
+    margin: 0 0 10px;
+    padding: 0;
+}
