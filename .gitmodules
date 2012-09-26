@@ -28,3 +28,9 @@
 [submodule "kohana/modules/userguide"]
 	path = kohana/modules/userguide
 	url = https://github.com/kohana/userguide.git
+[submodule "kohana/captcha"]
+	path = kohana/captcha
+	url = https://github.com/davidvandertuijn/kohana-captcha.git
+[submodule "kohana/modules/captcha"]
+	path = kohana/modules/captcha
+	url = https://github.com/davidvandertuijn/kohana-captcha.git
